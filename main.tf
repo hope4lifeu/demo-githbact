@@ -1,4 +1,4 @@
-resource "aws" "vpc" {
+provider "aws" "vpc" {
     region = "us-west-2"
   
 }
