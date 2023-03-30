@@ -29,9 +29,9 @@ jobs:
       - name: Terraform plan
         run: terraform plan
       - name: release
-        run: npm semantic release
-      - name: npm release2
-        run: npm semantic release2  
+        run: npx semantic-release
+      - name: release2
+        run: npx semantic-release2  
       - name: Terraform apply
         run: terraform apply -auto-approve
       - name: Terraform destroy
