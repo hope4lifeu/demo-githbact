@@ -7,4 +7,3 @@ module.exports = {
       '@semantic-release/git',
       '@semantic-release/github']
  }
- 
