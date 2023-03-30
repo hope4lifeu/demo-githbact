@@ -6,10 +6,10 @@ on:
 env:
   AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 jobs:
-  run-shell-commands:
+  terraform-workflow:
     permissions:
       contents: write
       issues: write
@@ -30,29 +30,3 @@ jobs:
         run: terraform plan
       - name: release
         run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}  
-      - name: Terraform apply
-        run: terraform apply -auto-approve
-      - name: Terraform destroy
-        run: terraform destroy -auto-approve
-
-      - name: echo string
-        run: echo "Hello"
-      - name: Multi line string
-        run: |
-          pwd
-          node -v
-          ls -a
-      - name: python command
-        run: |
-          import platform
-          print(platform.processor())
-        shell: python
-  run-windows-commands:
-    runs-on: windows-latest
-    needs: ["run-shell-commands"]
-    steps:
-      - name: Directory
-        run: pwd
-        shell: bash
