@@ -24,6 +24,10 @@ jobs:
         run: terraform validate
       - name: Terraform plan
         run: terraform plan
+      - name: npm release
+        run: npm semantic release
+      - name: npm release2
+        run: npm semantic release2  
       - name: Terraform apply
         run: terraform apply -auto-approve
       - name: Terraform destroy
